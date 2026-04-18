@@ -20,6 +20,13 @@ jobs:
                 username: ${{secrets.SSH_USERNAME}}
                 key: ${{secrets.SSH_KEY}}
                 script: |
+                    set -e
                     cd /root/project_x
-                    git pull
+
+                    git remote remove origin || true
+                    git remote add origin https://github.com/Tushar-CodeSpace/project_x-backend.git
+
+                    git fetch origin
+                    git reset --hard origin/main
+
                     docker compose up -d --build
