@@ -21,7 +21,7 @@ jobs:
                 key: ${{secrets.SSH_KEY}}
                 script: |
                     set -e
-                    cd /root/project_x
+                    cd /root/project_x-backend
 
                     git remote remove origin || true
                     git remote add origin https://github.com/Tushar-CodeSpace/project_x-backend.git
