@@ -1,12 +1,14 @@
-FROM node:22-alpine
+# Backend Dockerfile
+FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+
+RUN npm ci
 
 COPY . .
 
-EXPOSE 8000
+EXPOSE 5000
 
-CMD [ "npm","run","start:prod" ]
+CMD ["npm", "run", "dev"]
